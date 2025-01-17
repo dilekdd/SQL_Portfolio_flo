@@ -1,4 +1,4 @@
--- Calculate cumulative sales by year
+-- Calculate cumulative sales and cumulative Sales Percentage by year
 with yearly_sales as (
 	select
 		extract(YEAR from last_order_date) as year_,
@@ -19,6 +19,6 @@ select
 	total_sales,
 	cumulative_sales,
 	(total_sales * 100.0 / overall_sales) as yearly_percenteage,
-	(cumulative_sales * 100.0 / overall_sales) as cumulativepercentage
+	(cumulative_sales * 100.0 / overall_sales) as cumulative_percentage
 from ranked_sales
 order by year_;
