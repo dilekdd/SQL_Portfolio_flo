@@ -1,4 +1,4 @@
--- Calculate the cumulative sales value by product (Product level cumulative total)
+-- Calculate the cumulative sales value by product categories (Product level cumulative total)
 WITH total_value AS (
     SELECT
         interested_in_categories_12,
@@ -6,9 +6,9 @@ WITH total_value AS (
     FROM flo
     GROUP BY interested_in_categories_12
 )
-
 SELECT 
     interested_in_categories_12,
-    SUM(total_sales) OVER (PARTITION BY interested_in_categories_12 ORDER BY total_sales ASC ROWS UNBOUNDED PRECEDING) AS cum_total
+    total_sales,
+    SUM(total_sales) OVER (ORDER BY total_sales ASC ROWS UNBOUNDED PRECEDING) AS cum_total
 FROM total_value
-ORDER BY interested_in_categories_12, total_sales ASC;
+ORDER BY total_sales;
