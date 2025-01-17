@@ -1,24 +1,24 @@
 -- Calculate cumulative sales and cumulative Sales Percentage by year
-with yearly_sales as (
-	select
-		extract(YEAR from last_order_date) as year_,
-		sum(customer_value_total_ever_online + customer_value_total_ever_offline) AS total_sales
-	from flo
-	group by extract(YEAR from last_order_date)
+WITH yearly_sales AS (
+	SELECT
+		EXTRACT(YEAR FROM last_order_date) AS year_,
+		SUM(customer_value_total_ever_online + customer_value_total_ever_offline) AS total_sales
+	FROM flo
+	GROUP BY EXTRACT(YEAR FROM last_order_date)
 ),
-ranked_sales as (
-	select
+ranked_sales AS (
+	SELECT
 		year_,
 		total_sales,
-		sum(total_sales) over (order by year_) as cumulative_sales,
-		sum(total_sales) over () as overall_sales
-	from yearly_sales
+		SUM(total_sales) OVER (ORDER BY year_) AS cumulative_sales,
+		SUM(total_sales) OVER () AS overall_sales
+	FROM yearly_sales
 )
-select
+SELECT
 	year_,
 	total_sales,
 	cumulative_sales,
-	(total_sales * 100.0 / overall_sales) as yearly_percenteage,
-	(cumulative_sales * 100.0 / overall_sales) as cumulative_percentage
-from ranked_sales
-order by year_;
+	round((total_sales * 100.0 / overall_sales), 2) AS yearly_percenteage,
+	round((cumulative_sales * 100.0 / overall_sales), 2) AS cumulative_percentage
+FROM ranked_sales
+ORDER BY year_;
