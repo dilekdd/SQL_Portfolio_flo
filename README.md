@@ -51,8 +51,8 @@ To replicate the analysis or run the queries, set up the database using the `cus
    psql -U your_username -d your_database_name -f customers_dump.sql
 
 
-How to Run
-Use the following command to execute a query:
+### **How to Run**
+**Use the following command to execute a query:
 psql -U your_username -d your_database -f path_to_query.sql
 
 
