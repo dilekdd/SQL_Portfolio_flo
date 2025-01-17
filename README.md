@@ -54,6 +54,8 @@ Use the following command to execute a query:
 ```bash
 psql -U your_username -d your_database -f path_to_query.sql
 
-### **Disclaimer**
-This project uses PostgreSQL to store and query the dataset. Ensure you have PostgreSQL installed to replicate the analysis.
+
+
+**Disclaimer**
+*This project uses PostgreSQL to store and query the dataset. Ensure you have PostgreSQL installed to replicate the analysis.*
 
