@@ -8,6 +8,14 @@ FLO wants to establish a roadmap for its sales and marketing activities. In orde
 
 ---
 
+### **Requirements**
+- **PostgreSQL**:
+  - This project uses PostgreSQL for data storage and analysis.
+  - Version: The dump file was created using PostgreSQL version 17. It is recommended to use the same or a compatible version.
+  - PostgreSQL is free and open-source. Download it [here](https://www.postgresql.org/download/).
+
+---
+
 ### **Data Dictionary**
 | Variable                            | Description                                    |
 |-------------------------------------|------------------------------------------------|
@@ -45,3 +53,7 @@ To replicate the analysis or run the queries, set up the database using the `cus
 Use the following command to execute a query:
 ```bash
 psql -U your_username -d your_database -f path_to_query.sql
+
+### **Disclaimer**
+This project uses PostgreSQL to store and query the dataset. Ensure you have PostgreSQL installed to replicate the analysis.
+
