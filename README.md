@@ -36,10 +36,12 @@ FLO wants to establish a roadmap for its sales and marketing activities. In orde
 - **Observations**: 19,945  
 
 ---
+
 ### **Contents**
 - **Queries**: Contains the SQL scripts for data analysis.
 - **Outputs**: Contains the results of the SQL queries in CSV format.
 
+---
 
 ### **Database Setup**
 To replicate the analysis or run the queries, set up the database using the `customers_dump.sql` file:
@@ -49,13 +51,10 @@ To replicate the analysis or run the queries, set up the database using the `cus
    psql -U your_username -d your_database_name -f customers_dump.sql
 
 
-### **How to Run**
+How to Run
 Use the following command to execute a query:
-```bash
 psql -U your_username -d your_database -f path_to_query.sql
 
 
-
-**Disclaimer**
-*This project uses PostgreSQL to store and query the dataset. Ensure you have PostgreSQL installed to replicate the analysis.*
-
+Disclaimer
+This project uses PostgreSQL to store and query the dataset. Ensure you have PostgreSQL installed to replicate the analysis.
